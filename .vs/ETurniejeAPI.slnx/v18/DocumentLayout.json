@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\100wi\\source\\repos\\ETurniejeAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B3D9BBB2-8D87-BC36-C3DD-A3F0E417C473}|ETurniejeAPI\\ETurniejeAPI.csproj|c:\\users\\100wi\\source\\repos\\eturniejeapi\\eturniejeapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B3D9BBB2-8D87-BC36-C3DD-A3F0E417C473}|ETurniejeAPI\\ETurniejeAPI.csproj|solutionrelative:eturniejeapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B3D9BBB2-8D87-BC36-C3DD-A3F0E417C473}|ETurniejeAPI\\ETurniejeAPI.csproj|c:\\users\\100wi\\source\\repos\\eturniejeapi\\eturniejeapi\\eturniejeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{B3D9BBB2-8D87-BC36-C3DD-A3F0E417C473}|ETurniejeAPI\\ETurniejeAPI.csproj|solutionrelative:eturniejeapi\\eturniejeapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -22,19 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\100wi\\source\\repos\\ETurniejeAPI\\ETurniejeAPI\\Dockerfile",
+              "RelativeDocumentMoniker": "ETurniejeAPI\\Dockerfile",
+              "ToolTip": "C:\\Users\\100wi\\source\\repos\\ETurniejeAPI\\ETurniejeAPI\\Dockerfile",
+              "RelativeToolTip": "ETurniejeAPI\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-26T19:31:50.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ETurniejeAPI.csproj",
               "DocumentMoniker": "C:\\Users\\100wi\\source\\repos\\ETurniejeAPI\\ETurniejeAPI\\ETurniejeAPI.csproj",
               "RelativeDocumentMoniker": "ETurniejeAPI\\ETurniejeAPI.csproj",
@@ -47,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\100wi\\source\\repos\\ETurniejeAPI\\ETurniejeAPI\\Program.cs",
               "RelativeDocumentMoniker": "ETurniejeAPI\\Program.cs",
@@ -59,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\100wi\\source\\repos\\ETurniejeAPI\\ETurniejeAPI\\appsettings.json",
               "RelativeDocumentMoniker": "ETurniejeAPI\\appsettings.json",
