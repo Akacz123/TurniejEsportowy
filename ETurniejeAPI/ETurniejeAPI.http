@@ -1,0 +1,6 @@
+@ETurniejeAPI_HostAddress = http://localhost:5166
+
+GET {{ETurniejeAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
