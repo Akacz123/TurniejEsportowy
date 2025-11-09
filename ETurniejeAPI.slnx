@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Elementy rozwiązania/">
+    <File Path="Dockerfile" />
+  </Folder>
   <Project Path="ETurniejeAPI/ETurniejeAPI.csproj" />
 </Solution>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ETurniejeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c964891157f9d85af225d662943d915dac5f6ea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a8051feb94b95efe5ac3687bbf929bd287df585")]
 [assembly: System.Reflection.AssemblyProductAttribute("ETurniejeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ETurniejeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
