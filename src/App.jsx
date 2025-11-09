@@ -1,67 +1,96 @@
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js"; // Poprawny import klienta
+import { apiClient } from "./services/api";
 import "./App.css";
 
 function App() {
-  const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // Inicjalizacja Supabase w komponencie
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-  const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-  const supabase =
-    supabaseUrl && supabaseAnonKey
-      ? createClient(supabaseUrl, supabaseAnonKey)
-      : null;
+  const [connectionStatus, setConnectionStatus] = useState({
+    loading: true,
+    connected: false,
+    message: "",
+    error: null,
+    data: null,
+  });
 
   useEffect(() => {
-    if (!supabase) {
-      setError("Brak konfiguracji Supabase – sprawdź .env.local");
-      setLoading(false);
-      return;
-    }
-
-    async function fetchGames() {
+    async function checkConnection() {
       try {
-        const { data, error: fetchError } = await supabase
-          .from("games")
-          .select("*");
-        if (fetchError) {
-          setError(`Błąd pobierania: ${fetchError.message}`);
-        } else {
-          setGames(data || []);
-          console.log("Dane z Supabase (games):", data); // Sprawdź w konsoli
-        }
-      } catch (err) {
-        setError(`Błąd połączenia: ${err.message}`);
-      } finally {
-        setLoading(false);
+        const result = await apiClient.testConnection();
+        setConnectionStatus({
+          loading: false,
+          connected: true,
+          message: "Połączenie z API działa!",
+          error: null,
+          data: result,
+        });
+      } catch (error) {
+        setConnectionStatus({
+          loading: false,
+          connected: false,
+          message: "Błąd połączenia z API",
+          error: error.message,
+          data: null,
+        });
       }
     }
 
-    fetchGames();
-  }, [supabase]);
+    checkConnection();
+  }, []);
 
-  if (loading) return <div>Ładowanie danych z Supabase...</div>;
-  if (error) return <div>Błąd: {error}</div>;
+  const retryConnection = () => {
+    setConnectionStatus((prev) => ({ ...prev, loading: true }));
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
+
+  if (connectionStatus.loading) {
+    return (
+      <div className="App">
+        <h1>Sprawdzanie połączenia...</h1>
+        <div className="spinner">⏳</div>
+      </div>
+    );
+  }
 
   return (
     <div className="App">
-      <h1>Lista gier z Supabase (tabela: games)</h1>
-      {games.length === 0 ? (
-        <p>Brak gier w bazie lub tabela pusta.</p>
-      ) : (
-        <ul>
-          {games.map((game) => (
-            <li key={game.id}>
-              <strong>{game.name || "Brak nazwy"}</strong> – Data:{" "}
-              {game.date || "Brak daty"} | ID: {game.id}
-            </li>
-          ))}
-        </ul>
+      <h1>Status połączenia z API</h1>
+
+      <div
+        className={`status-box ${
+          connectionStatus.connected ? "success" : "error"
+        }`}
+      >
+        <h2>{connectionStatus.connected ? "✅ Połączono" : "❌ Błąd"}</h2>
+        <p>{connectionStatus.message}</p>
+
+        {connectionStatus.error && (
+          <div className="error-details">
+            <strong>Szczegóły błędu:</strong>
+            <pre>{connectionStatus.error}</pre>
+          </div>
+        )}
+
+        {connectionStatus.data && (
+          <div className="api-response">
+            <strong>Odpowiedź z API:</strong>
+            <pre>{JSON.stringify(connectionStatus.data, null, 2)}</pre>
+          </div>
+        )}
+
+        {!connectionStatus.connected && (
+          <button onClick={retryConnection} className="retry-button">
+            🔄 Spróbuj ponownie
+          </button>
+        )}
+      </div>
+
+      {connectionStatus.connected && (
+        <div className="next-steps">
+          <h3>🎉 Wszystko działa!</h3>
+          <p>Możesz teraz dodawać kolejne endpointy do API.</p>
+        </div>
       )}
-      <p>Liczba gier: {games.length}</p>
     </div>
   );
 }
