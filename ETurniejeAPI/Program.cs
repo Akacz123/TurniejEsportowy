@@ -1,6 +1,6 @@
 ﻿using ETurniejeAPI.Middleware;
 
-var builder = WebApplication.CreateBuilder(args); // ← tylko raz!
+var builder = WebApplication.CreateBuilder(args);
 
 // Dodaj CORS
 builder.Services.AddCors(options =>
@@ -9,7 +9,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
             "https://eturniej.vercel.app",
-            "http://localhost:3000"
+            "http://localhost:3000",
+            "http://localhost:5173" // jeśli używasz Vite
         )
         .AllowAnyHeader()
         .AllowAnyMethod()
@@ -19,17 +20,11 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 
-var app = builder.Build(); // ← tylko raz!
+var app = builder.Build();
 
-// Użyj CORS
 app.UseCors("AllowVercel");
-
-// Dodaj middleware API Key
 app.UseMiddleware<ApiKeyMiddleware>();
-
-app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
