@@ -1,0 +1,179 @@
+/* --- Główny kontener --- */
+.container {
+    background-color: #1a1a1a; /* Ciemniejsze, bardziej stonowane tło */
+    border: 1px solid #333;   /* Subtelna ramka */
+    border-radius: 16px;      /* Bardziej zaokrąglone rogi */
+    padding: 20px;
+    max-width: 400px;
+    
+    /* Używamy Flexboxa do lepszego zarządzania układem wewnętrznym */
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Odstęp między tytułem, banerem i listą */
+}
+
+.container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Delikatny cień przy najechaniu */
+    transform: translateY(-2px); /* Subtelne uniesienie */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+/* --- Tytuł --- */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center; /* Tytuł może pozostać na środku */
+    margin: 0; /* Usuwamy domyślny margines */
+}
+
+/* --- Baner --- */
+.banner {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block; /* Ważne, aby usunąć ewentualne podcięcia pod obrazkiem */
+}
+
+/* --- Lista z danymi --- */
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* --- Pojedynczy element listy --- */
+.list li {
+    /* Używamy Flexboxa do stworzenia układu dwóch kolumn */
+    display: flex;
+    justify-content: space-between; /* Rozsuwa etykietę i wartość na boki */
+    align-items: center;
+
+    padding: 12px 0; /* Odstęp w pionie */
+    font-size: 16px;
+    
+    /* Linia oddzielająca, ale nie dla pierwszego elementu */
+    border-top: 1px solid #2c2c2c;
+}
+
+/* --- Etykiety (np. "Location:") --- */
+.list li strong {
+    color: #a0aec0; /* Szarawy kolor dla mniejszego kontrastu */
+    font-weight: normal; /* Etykiety nie muszą być pogrubione */
+}
+
+/* --- Wartości (np. "Online") --- */
+.list li span {
+    color: #e2e8f0; /* Jaśniejszy kolor dla wartości */
+    font-weight: 500;
+}
+
+/* --- Specjalny styl dla najważniejszej informacji o czasie --- */
+.timeInfo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    border-top: none !important; /* Nadpisujemy linię oddzielającą */
+    padding: 8px 0 16px; /* Większy odstęp na dole */
+}
+
+.registrationButton {
+    align-items: center;
+}
+
+.modalTitle {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.modalBanner {
+    width: 100%;
+    height: auto; /* Zapewnia zachowanie proporcji */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: block;
+
+    /* --- KLUCZOWE ZMIANY --- */
+    border: none;       /* DODANE: Usuwa czerwoną ramkę */
+    outline: none;      /* DODANE: Usuwa ewentualny "outline" z debugowania */
+    object-fit: cover;  /* DODANE: Zapewnia, że obrazek ładnie wypełni przestrzeń */
+    max-height: 400px;  /* DODANE: Ogranicza maksymalną wysokość banera, aby nie dominował */
+}
+
+/* --- Style dla treści w modalu --- */
+
+.modalDescription {
+    text-align: center;
+    color: #a0aec0;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* --- Lista z danymi w modalu --- */
+.modalList {
+    list-style-type: none; /* KLUCZOWE: Usuwa punktory */
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* --- Pojedynczy wiersz listy w modalu --- */
+.modalList li {
+    /* Używamy Grid do stworzenia idealnie wyrównanego układu dwukolumnowego */
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Kolumna na etykietę i kolumna na wartość */
+    align-items: start; /* Wyrównuje do góry, jeśli tekst się zawija */
+    gap: 16px; /* Odstęp między etykietą a wartością */
+    
+    padding: 12px 0;
+    border-bottom: 1px solid #3a3a3a; /* Linia oddzielająca */
+}
+
+/* Usuwamy linię na dole ostatniego elementu */
+.modalList li:last-child {
+    border-bottom: none;
+}
+
+/* Etykiety i wartości w modalu (już je masz, ale upewnij się, że są w .modalList) */
+.modalList li strong {
+    color: #a0aec0;
+    font-weight: 500;
+}
+.modalList li span {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* --- Kontener na przycisk/akcje w modalu --- */
+.modalActions {
+    margin-top: 30px;
+    
+    /* --- KLUCZOWE ZMIANY --- */
+    display: flex;             /* Ustawia kontener jako elastyczny */
+    justify-content: center;
+}
+
+/* --- Styl przycisku rejestracji --- */
+.registrationButton {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.registrationButton:hover {
+    background-color: #c53030;
+}
+
+.registrationButton:active {
+    transform: scale(0.98);
+}

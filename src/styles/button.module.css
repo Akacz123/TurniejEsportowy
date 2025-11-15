@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  color: #FFFFFF;          /* szary tekst (jak w twoim przykładzie) */
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease,
+    filter 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+
+/* efekt gdy NIE jest aktywne (domyślny) */
+.button {
+  opacity: 0.6;            /* cały element przygaszony */
+}
+
+/* efekt po najechaniu */
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.06); /* lekkie rozjaśnienie tła */
+  color: #6b7280;                               /* jaśniejszy tekst */
+  opacity: 1;
+}
+
